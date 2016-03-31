@@ -1,0 +1,7 @@
+---
+- name: install | Install PlasticSCM
+  apt:
+    name: plasticscm-server-complete
+    state: latest
+    update_cache: yes
+  sudo: yes

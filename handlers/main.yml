@@ -1,0 +1,7 @@
+---
+- name: plasticscm - restart service
+  service:
+    name: plasticsd
+    state: restarted
+    enabled: yes
+  sudo: yes

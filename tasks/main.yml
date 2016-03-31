@@ -1,0 +1,6 @@
+---
+- include: pre-install.yml
+  tags: pre-installation tasks
+
+- include: install.yml
+  tags: install Plastic SCM

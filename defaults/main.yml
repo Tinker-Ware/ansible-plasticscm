@@ -1,0 +1,11 @@
+---
+
+########################################################
+# {{ distro_id }} specifies the target distribution.   #
+# Possible values are:                                 #
+#   "Debian_6.0"                                       #
+#   "Debian_8.1"                                       #
+#   "Ubuntu_14.04"                                     #
+########################################################
+
+distro_id: "Debian_8.1"
