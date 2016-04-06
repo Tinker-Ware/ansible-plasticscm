@@ -4,4 +4,3 @@
     name: plasticsd
     state: restarted
     enabled: yes
-  sudo: yes
