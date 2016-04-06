@@ -10,9 +10,11 @@
 
 distro_id: "Debian_8.1"
 
-users_hash:
-  - name: Alf
+users:
+  - name: example
     password: pass
+    groups:
+      - example
 
 ###########################
 # # Server configurations #
@@ -45,17 +47,6 @@ limit_to_load_pusher_guid_table_in_full: 0
 database_upgrade_disabled: false
 is_enterprise_setup: false
 fips_compliant: false
-
-# list_of_users:
-#   - name: user1
-#     password: pass
-#     groups:
-#       - group1
-#       - group2
-#   - name: user2
-#     password: pass
-#     groups:
-#       - group1
 
 ############################
 # # Database Configuration #
