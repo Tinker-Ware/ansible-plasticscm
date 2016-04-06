@@ -4,4 +4,3 @@
     name: plasticscm-server-complete
     state: latest
     update_cache: yes
-  sudo: yes

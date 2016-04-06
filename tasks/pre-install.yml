@@ -3,28 +3,23 @@
   apt:
     name: apt-transport-https
     state: latest
-  sudo: yes
 
 - name: pre-install | Add PlasticSCM common packages repository
   apt_repository:
     repo: "deb https://www.plasticscm.com/plasticrepo/plasticscm-common/{{ distro_id }}/ ./"
     state: present
-  sudo: yes
 
 - name: pre-install | Add PlasticSCM-latest repository
   apt_repository:
     repo: "deb https://www.plasticscm.com/plasticrepo/plasticscm-latest/{{ distro_id }}/ ./"
     state: present
-  sudo: yes
 
 - name: pre-install | Add PlasticSCM common repo key
   apt_key:
     url: "https://www.plasticscm.com/plasticrepo/plasticscm-common/{{ distro_id }}/Release.key"
     state: present
-  sudo: yes
 
 - name: pre-install | Add PlasticSCM-latest repo key
   apt_key:
     url: "https://www.plasticscm.com/plasticrepo/plasticscm-latest/{{ distro_id }}/Release.key"
     state: present
-  sudo: yes

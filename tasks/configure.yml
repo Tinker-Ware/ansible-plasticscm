@@ -1,0 +1,56 @@
+---
+- name: configure | Configure Server
+  template:
+    src=server.conf
+    dest=/opt/plasticscm5/server/server.conf
+    owner=root
+    group=root
+    mode=644
+
+- name: configure | Configure Database
+  template:
+    src=db.conf
+    dest=/opt/plasticscm5/server/db.conf
+    owner=root
+    group=root
+    mode=644
+
+- name: configure | Create Users
+  command: umtool createuser {{ item.name }} {{ item.password }}
+  with_items: users
+  when: "item.name not in ' ' + lookup('file', '/opt/plasticscm5/server/users.conf') | string"
+
+- name: configure | Create groups
+  command: umtool creategroup {{ item.1 }}
+  when: "item.1 not in ' ' + lookup('file', '/opt/plasticscm5/server/groups.conf') | string"
+  with_subelements:
+    - users
+    - groups
+
+- name: configure | Populate Groups
+  command: umtool addusertogroup {{ item.0.name | string }} {{ item.1 | string }}
+  when: "':' + item.0.name not in lookup('pipe', 'grep '+ item.1 +' /opt/plasticscm5/server/groups.conf')"
+  with_subelements:
+    - users
+    - groups
+
+- name: configure | Configure Token
+  template:
+    src=plasticd.token.lic
+    dest=/opt/plasticscm5/server/plasticd.token.lic
+    owner=root
+    group=root
+    mode=644
+
+- name: configure | licence | Verify if path exists
+  stat: path={{ inventory_dir }}/host_files
+  register: p
+
+- name: configure | licence | Add provided Licence
+  copy:
+    src={{ inventory_dir }}/host_files/{{ inventory_hostname }}/plasticd.lic
+    dest=/opt/plasticscm5/server/plasticd.lic
+    owner=root
+    group=root
+    mode=644
+  when: p.stat.isdir is defined and p.stat.isdir
