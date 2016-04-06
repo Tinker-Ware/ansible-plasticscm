@@ -1,40 +1,11 @@
 ---
-
-########################################################
-# {{ distro_id }} specifies the target distribution.   #
-# Possible values are:                                 #
-#   "Debian_6.0"                                       #
-#   "Debian_8.1"                                       #
-#   "Ubuntu_14.04"                                     #
-########################################################
-
 distro_id: "Debian_8.1"
 
 users:
-  - name: example
+  - name: example_user
     password: pass
     groups:
-      - example
-
-###########################
-# # Server configurations #
-###########################
-
-#############################
-# Language possible values: #
-#   en                      #
-#   es                      #
-#############################
-
-#################################
-# Working mode possible values: #
-#   NameWorkingMode             #
-#   NameIDWorkingMode           #
-#   LDAPWorkingMode             #
-#   ADWorkingMode               #
-#   UPWorkingMode               #
-#   TubeWorkingMode             #
-#################################
+      - example_group
 
 language: "en"
 working_mode: "UPWorkingMode"
@@ -48,14 +19,6 @@ database_upgrade_disabled: false
 is_enterprise_setup: false
 fips_compliant: false
 
-############################
-# # Database Configuration #
-############################
 provider_name: "sqlite"
 
-##############
-# # Security #
-##############
-plastic_token: ""
-# Specify the location of your licence (plasticd.lic) file
-plastic_licence: "{{ lookup('file', '/tmp/plasticd.lic') }}"
+plastic_token: "mytoken"
