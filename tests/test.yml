@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - { role: ansible-plasticscm, sudo: yes}
+    - { role: ansible-plasticscm, sudo: yes, distro_id: "Ubuntu_12.04"}
