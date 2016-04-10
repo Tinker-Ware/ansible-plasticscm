@@ -13,7 +13,7 @@
 
 - name: install | Install PlasticSCM
   apt:
-    name: plasticscm-server-complete
+    name: plasticscm-complete
     state: latest
     install_recommends: yes
     upgrade: yes
