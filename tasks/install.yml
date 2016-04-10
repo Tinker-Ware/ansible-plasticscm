@@ -1,4 +1,10 @@
 ---
+- name: install | Install PlasticSCM tools
+  apt:
+    name: plasticscm-server-tools
+    state: latest
+    update_cache: yes
+
 - name: install | Install PlasticSCM
   apt:
     name: plasticscm-server-complete
