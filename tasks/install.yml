@@ -1,6 +1,12 @@
 ---
 - name: install | Install PlasticSCM tools
   apt:
+    name: plasticscm-libgdiplus
+    state: latest
+    update_cache: yes
+
+- name: install | Install PlasticSCM tools
+  apt:
     name: plasticscm-server-tools
     state: latest
     update_cache: yes
