@@ -15,5 +15,8 @@
   apt:
     name: plasticscm-complete
     state: latest
-    install_recommends: yes
     update_cache: yes
+  ignore_errors: yes
+
+- name: install | Install PlasticSCM
+  command: apt-get update -f
