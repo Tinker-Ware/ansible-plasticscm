@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-plasticscm
+    - { role: ansible-plasticscm, sudo: yes}
