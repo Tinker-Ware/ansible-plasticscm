@@ -16,5 +16,4 @@
     name: plasticscm-complete
     state: latest
     install_recommends: yes
-    upgrade: yes
     update_cache: yes
