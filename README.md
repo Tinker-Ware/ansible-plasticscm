@@ -21,7 +21,7 @@ To install all the defaults:
 ```
 - hosts: my_server
   roles:
-      - { role: plasticscm, sudo: yes }
+      - { role: plasticscm, become: yes }
 ```
 
 Defining Variables

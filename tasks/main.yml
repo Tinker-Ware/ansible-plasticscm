@@ -1,9 +1,9 @@
 ---
-- include: pre-install.yml
+- include_tasks: pre-install.yml
   tags: pre-installation tasks
 
-- include: install.yml
+- include_tasks: install.yml
   tags: install Plastic SCM
 
-- include: configure.yml
+- include_tasks: configure.yml
   tags: configure Plastic SCM server
